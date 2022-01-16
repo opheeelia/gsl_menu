@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gsl_menu/services/auth.dart';
 
 class Home extends StatefulWidget {
-
   const Home({Key? key}) : super(key: key);
 
   @override
@@ -19,9 +18,13 @@ class _HomeState extends State<Home> {
         title: const Text("Home"),
       ),
       body: Column(
-        children: [ElevatedButton(onPressed: (){
-          _auth.signOut((){});
-        }, child: const Text("Logout"))],
+        children: [
+          ElevatedButton(
+              onPressed: () {
+                _auth.signOut();
+              },
+              child: const Text("Logout"))
+        ],
       ),
     );
   }
