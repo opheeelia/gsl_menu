@@ -32,31 +32,14 @@ class AuthService {
         phoneNumber: phoneNumber,
         timeout: const Duration(seconds: 60),
         verificationCompleted: (authCredential) =>
-            _onVerificationCompleted(authCredential, verifiedCallback),
+            verifiedCallback(authCredential),
         verificationFailed: (exception) =>
-            _onVerificationFailed(exception, verifyFailedCallback),
+            verifyFailedCallback(exception.message),
         codeSent: (verificationId, forceResendingToken) =>
-            _onCodeSent(verificationId, forceResendingToken, codeSentCallback),
-        codeAutoRetrievalTimeout: _onCodeTimeout);
+            codeSentCallback(verificationId),
+        codeAutoRetrievalTimeout: (String timeout) => null);
   }
 
-  _onVerificationCompleted(
-      PhoneAuthCredential authCredential, Function callback) async {
-    callback(authCredential);
-  }
-
-  _onVerificationFailed(FirebaseAuthException exception, Function callback) {
-    callback(exception.message);
-  }
-
-  _onCodeSent(
-      String verificationId, int? forceResendingToken, Function callback) {
-    callback(verificationId);
-  }
-
-  _onCodeTimeout(String timeout) {
-    return null;
-  }
 
   void signOut(Function callback) async {
     await _auth.signOut();
