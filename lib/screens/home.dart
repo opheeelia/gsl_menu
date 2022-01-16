@@ -19,11 +19,7 @@ class _HomeState extends State<Home> {
       ),
       body: Column(
         children: [
-          ElevatedButton(
-              onPressed: () {
-                _auth.signOut();
-              },
-              child: const Text("Logout"))
+          ElevatedButton(onPressed: _auth.signOut, child: const Text("Logout"))
         ],
       ),
     );
