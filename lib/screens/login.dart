@@ -4,7 +4,6 @@ import 'package:gsl_menu/services/auth.dart';
 enum MobileVerificationState { MOBILE_FORM, OTP_FORM }
 
 class Login extends StatefulWidget {
-
   const Login({Key? key}) : super(key: key);
 
   @override
@@ -13,8 +12,8 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   MobileVerificationState currentState = MobileVerificationState.MOBILE_FORM;
-  final mobileController = TextEditingController();
-  final otpController = TextEditingController();
+
+  // TODO: Step 1 - Create text controllers
 
   final AuthService auth = AuthService.instance;
 
@@ -27,39 +26,15 @@ class _LoginState extends State<Login> {
       children: [
         const Spacer(),
         TextField(
-          controller: mobileController,
+          // TODO: Step 1
           decoration: const InputDecoration(hintText: "Phone Number"),
         ),
         const SizedBox(
           height: 16,
         ),
         FlatButton(
-            onPressed: () async {
-              setState(() {
-                loading = true;
-              });
-              auth.phoneSignIn(
-                  phoneNumber: mobileController.text,
-                  verifiedCallback: (phoneAuthCredential) async {
-                    setState(() {
-                      loading = false;
-                    });
-                  },
-                  verifyFailedCallback: (errorMsg) async {
-                    setState(() {
-                      loading = false;
-                    });
-                    _scaffoldKey.currentState?.showSnackBar(
-                        SnackBar(content: Text(errorMsg)));
-                  },
-                  codeSentCallback: (verificationId) async {
-                    setState(() {
-                      currentState = MobileVerificationState.OTP_FORM;
-                      this.verificationId = verificationId;
-                      loading = false;
-                    });
-                  });
-            },
+          // TODO: Step 2 - Fill in callback for first step
+            onPressed: () {},
             child: const Text("Verify")),
         const Spacer()
       ],
@@ -71,26 +46,15 @@ class _LoginState extends State<Login> {
       children: [
         const Spacer(),
         TextField(
-          controller: otpController,
+          // TODO: Step 1
           decoration: const InputDecoration(hintText: "OTP"),
         ),
         const SizedBox(
           height: 16,
         ),
         FlatButton(
-            onPressed: () async {
-              auth.signInWithPhoneAuthCredential(verificationId, otpController.text,
-                      (userCredential, errorMsg) {
-                    setState(() {
-                      loading = false;
-                    });
-
-                    if (userCredential == null || userCredential.user == null) {
-                      _scaffoldKey.currentState?.showSnackBar(
-                          SnackBar(content: Text(errorMsg)));
-                    }
-                  });
-            },
+          // TODO: Step 4 - Fill in callback
+            onPressed: () {},
             child: const Text("Verify")),
         const Spacer(),
       ],
@@ -106,11 +70,11 @@ class _LoginState extends State<Login> {
         body: Container(
           child: loading
               ? const Center(
-            child: CircularProgressIndicator(),
-          )
+                  child: CircularProgressIndicator(),
+                )
               : currentState == MobileVerificationState.MOBILE_FORM
-              ? getMobileFormWidget(context)
-              : getOtpFormWidget(context),
+                  ? getMobileFormWidget(context)
+                  : getOtpFormWidget(context),
         ));
   }
 }

@@ -9,18 +9,13 @@ class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   signInWithPhoneAuthCredential(verificationId, smsCode, callback) async {
-    final phoneAuthCredential = PhoneAuthProvider.credential(
-        verificationId: verificationId, smsCode: smsCode);
+    // TODO: Step 5 - Use PhoneAuthProvider to get credential
     late final UserCredential? authCredential;
     late final String errorMsg;
-    try{
-      authCredential = await _auth.signInWithCredential(phoneAuthCredential);
-      errorMsg = "";
-    } on FirebaseAuthException catch (e){
-      errorMsg = e.message as String;
-      authCredential = null;
-    }
-    callback(authCredential, errorMsg);
+    // TODO: Step 6 - Use credentials to sign in with _auth
+
+    // TODO: uncomment when done
+    // callback(authCredential, errorMsg);
   }
 
   Future<void> phoneSignIn(
@@ -28,24 +23,16 @@ class AuthService {
         required Function verifiedCallback,
         required Function verifyFailedCallback,
         required Function codeSentCallback}) async {
-    await _auth.verifyPhoneNumber(
-        phoneNumber: phoneNumber,
-        timeout: const Duration(seconds: 60),
-        verificationCompleted: (authCredential) =>
-            verifiedCallback(authCredential),
-        verificationFailed: (exception) =>
-            verifyFailedCallback(exception.message),
-        codeSent: (verificationId, forceResendingToken) =>
-            codeSentCallback(verificationId),
-        codeAutoRetrievalTimeout: (String timeout) => null);
+    // TODO: Step 3 - use _auth.verifyPhoneNumber
   }
 
 
   void signOut() async {
-    await _auth.signOut();
+    // TODO: Step 10
   }
 
   Stream<User?> getUserStream(){
-    return _auth.authStateChanges();
+    // TODO: Step 7
+    throw Exception("User stream not implemented");
   }
 }
