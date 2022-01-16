@@ -41,13 +41,8 @@ class AuthService {
   }
 
 
-  void signOut(Function callback) async {
+  void signOut() async {
     await _auth.signOut();
-    callback();
-  }
-
-  User? getCurrentUser(){
-    return _auth.currentUser;
   }
 
   Stream<User?> getUserStream(){
