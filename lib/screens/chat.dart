@@ -21,7 +21,6 @@ class _ChatState extends State<Chat> {
 
   @override
   Widget build(BuildContext context) {
-    print(Provider.of<User>(context).uid);
     Stream<List<Message>> messagesStream = _db.getEventMessages(widget.eid);
 
     return StreamBuilder<List<Message>>(

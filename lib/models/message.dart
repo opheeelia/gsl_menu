@@ -13,13 +13,14 @@ class Message {
         required this.timestamp
       });
 
-  Message.fromMap(Map<String, Object?> map)
-      : this(
-      eid: map['eid'] as String,
-      senderId: map['senderId'] as String,
-      message: map['message'] as String,
-      timestamp: (map['timestamp'] as Timestamp).toDate()
-  );
+  static Message fromMap(Map<String, Object?> map){
+    return Message(
+        eid: map['eid'] as String,
+        senderId: map['senderId'] as String,
+        message: map['message'] as String,
+        timestamp: (map['timestamp'] as Timestamp).toDate()
+    );
+  }
 
   Map<String, Object?> toMap(){
     return {
