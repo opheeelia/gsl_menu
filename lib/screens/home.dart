@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gsl_menu/services/auth.dart';
 
+import 'chat.dart';
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -14,12 +16,15 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: const Text("Home"),
       ),
       body: Column(
         children: [
-          ElevatedButton(onPressed: _auth.signOut, child: const Text("Logout"))
+          ElevatedButton(onPressed: _auth.signOut, child: const Text("Logout")),
+          const SizedBox(height: 15,),
+          Chat(eid: "",)
         ],
       ),
     );
