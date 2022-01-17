@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
         children: [
           ElevatedButton(onPressed: _auth.signOut, child: const Text("Logout")),
           const SizedBox(height: 15,),
-          Chat(eid: "",)
+          // TODO: Step 5 - Add chat
         ],
       ),
     );

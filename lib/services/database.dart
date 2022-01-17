@@ -7,19 +7,14 @@ class FirestoreDb {
 
   static final FirestoreDb instance = FirestoreDb._privateConstructor();
 
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  // TODO: Step 2 - Use Firestore
 
   Future<void> sendMessage(Message msg) async {
-    await firestore.collection('messages').add(msg.toMap());
+    // TODO: Step 9 - Send message
   }
 
   Stream<List<Message>> getEventMessages(String eid) {
-    Stream<List<Message>> messages = firestore
-        .collection('messages')
-        .where('eid', isEqualTo: eid)
-        .orderBy('timestamp')
-        .snapshots()
-        .map((query) => query.docs.map((doc) => Message.fromMap(doc.data())).toList());
-    return messages;
+    // TODO: Step 3 - Get messages from firestore
+    throw Exception("Not implemented");
   }
 }

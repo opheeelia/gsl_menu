@@ -1,33 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Message {
-  final String eid;
-  final String senderId;
-  final String message;
-  final DateTime timestamp;
-
-  Message(
-      {required this.eid,
-        required this.senderId,
-        required this.message,
-        required this.timestamp
-      });
+  // TODO: Step 1 - Create fields for message model
 
   static Message fromMap(Map<String, Object?> map){
-    return Message(
-        eid: map['eid'] as String,
-        senderId: map['senderId'] as String,
-        message: map['message'] as String,
-        timestamp: (map['timestamp'] as Timestamp).toDate()
-    );
+    // TODO: Step 4
+    throw Exception("Not implemented");
   }
 
   Map<String, Object?> toMap(){
-    return {
-      'eid': eid,
-      'senderId': senderId,
-      'message': message,
-      'timestamp': timestamp
-    };
+    // TODO: Step 4
+    throw Exception("Not implemebted");
   }
 }
