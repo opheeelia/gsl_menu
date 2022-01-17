@@ -7,7 +7,7 @@ import 'package:gsl_menu/services/auth.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-  // TODO: Step 15 - Initialize Firebase
+  // TODO: Step 0 - Initialize Firebase
   runApp(MyApp());
 }
 
