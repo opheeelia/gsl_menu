@@ -7,7 +7,7 @@ class FirestoreDb {
 
   static final FirestoreDb instance = FirestoreDb._privateConstructor();
 
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   Future<void> sendMessage(Message msg) async {
     await firestore.collection('messages').add(msg.toMap());
