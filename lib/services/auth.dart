@@ -6,7 +6,7 @@ class AuthService {
   AuthService._privateConstructor();
   static final AuthService instance = AuthService._privateConstructor();
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  // TODO: Step 0 - use FirebaseAuth
 
   signInWithPhoneAuthCredential(verificationId, smsCode, callback) async {
     // TODO: Step 5 - Use PhoneAuthProvider to get credential
