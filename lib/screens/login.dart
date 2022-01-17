@@ -13,7 +13,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   MobileVerificationState currentState = MobileVerificationState.MOBILE_FORM;
 
-  // TODO: Step 1 - Create text controllers
+  // TODO: Step 5 - Create text controllers
 
   final AuthService auth = AuthService.instance;
 
@@ -26,14 +26,14 @@ class _LoginState extends State<Login> {
       children: [
         const Spacer(),
         TextField(
-          // TODO: Step 1
+          // TODO: Step 5
           decoration: const InputDecoration(hintText: "Phone Number"),
         ),
         const SizedBox(
           height: 16,
         ),
         FlatButton(
-          // TODO: Step 2 - Fill in callback for first step
+          // TODO: Step 6 - Fill in callback for first step
             onPressed: () {},
             child: const Text("Verify")),
         const Spacer()
@@ -46,14 +46,14 @@ class _LoginState extends State<Login> {
       children: [
         const Spacer(),
         TextField(
-          // TODO: Step 1
+          // TODO: Step 5
           decoration: const InputDecoration(hintText: "OTP"),
         ),
         const SizedBox(
           height: 16,
         ),
         FlatButton(
-          // TODO: Step 4 - Fill in callback
+          // TODO: Step 8 - Fill in callback
             onPressed: () {},
             child: const Text("Verify")),
         const Spacer(),

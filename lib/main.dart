@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // TODO: Step 8 - Wrap the app with user
+    // TODO: Step 3 - Wrap the app with user
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -49,7 +49,7 @@ class Wrapper extends StatefulWidget {
 class _WrapperState extends State<Wrapper> {
   @override
   Widget build(BuildContext context) {
-    // TODO: Step 9 - Change this to return Home() or Login() depending on user
+    // TODO: Step 4 - Change this to return Home() or Login() depending on user
     return const Home();
   }
 }
