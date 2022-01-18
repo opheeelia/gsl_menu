@@ -27,6 +27,7 @@ class _LoginState extends State<Login> {
       children: [
         const Spacer(),
         TextField(
+          keyboardType: TextInputType.number,
           controller: mobileController,
           decoration: const InputDecoration(hintText: "Phone Number"),
         ),
@@ -71,6 +72,7 @@ class _LoginState extends State<Login> {
       children: [
         const Spacer(),
         TextField(
+          keyboardType: TextInputType.number,
           controller: otpController,
           decoration: const InputDecoration(hintText: "OTP"),
         ),
